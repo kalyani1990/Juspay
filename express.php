@@ -27,41 +27,75 @@ curl_setopt($s,CURLOPT_TIMEOUT, 15);
 ?>
 
 
+<html>
+<head>
+        <!--Twitter Bootstrap resources-->
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.no-icons.min.css" rel="stylesheet">
 
-<!--Add the pay.js and its depedency Jquery-->
-<script type="text/javascript" 
-    src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" 
-    src="https://api.juspay.in/pay.js"></script>
+        <!--Add the pay.js and its depedency Jquery-->
+        <script type="text/javascript" 
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+        </script>
+        <script type="text/javascript" 
+            src="https://api.juspay.in/pay.js"></script>
 
-<!--A sample dummy form. Make sure you stick to the id and class names as specified-->
-<form class="juspay_express_form" id="payment_form">
+</head>
 
-    <!--The merchant should pick the "card_token" for particular user-->
-    <input type="hidden" class="card_token" value="11e8e400-5636-4ce4-b4fd-f5b89a34f4f3"/>
-    <input type="hidden" class="merchant_id" value="guest">
-    <?php
-       #Use the same order_id that is generated in previous step.
-       echo "<input type=\"hidden\" class=\"order_id\" value=$order_id />";
-    ?>
-    <label>5264-XXXXXXXX-3394</label>
-    <input type="text" class="security_code" placeholder="CVV" >
-    <button type="submit" class="make_payment">Pay</button>
+  <body>
 
-</form> 
+    <div class="container">    
+    <div class="row">
+      <div class="form-horizontal offset4 span4">
+         <!--A sample dummy form. Make sure you stick to the id and class names as specified-->
+          <form class="juspay_express_form" id="payment_form">
+              <fieldset>
+                  <!--The merchant should pick the "card_token" for particular user-->
+                  <input type="hidden" class="card_token" value="11e8e400-5636-4ce4-b4fd-f5b89a34f4f3"/>
+                  <input type="hidden" class="merchant_id" value="guest">
+                  <?php
+                         #Use the same order_id that is generated in previous step.
+                         echo "<input type=\"hidden\" class=\"order_id\" value=$order_id />";
+                  ?>
+                  <legend>Juspay Express Checkout</legend>
+                  <div class="control-group">
+                    <label class="control-label">Card no</label>
+                    <div class="controls">
+                      <label>5264-XXXXXXXX-3394</label>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"  for="optionsCheckbox">CVV</label>
+                    <div class="controls">
+                        <input type="text" class="security_code span1" placeholder="CVV" required = "" />
+                    </div>
+                  </div>
+                  <div class="form-actions">
+                    <button type="submit" class="make_payment btn btn-primary">Pay</button>
+                    <button class="btn">Cancel</button>
+                  </div> 
+              </fieldset>
+          </form> 
+      </div>
+    </div>
+    </div>
 
 
-<!--Call Juspay.setup with your success and error handler.-->
-<script type="text/javascript">
-    Juspay.Setup({
-        payment_form: "#payment_form",
-        success_handler: function(status) {
-            //redirect to success page
-            window.location = "success.php";
-        },
-        error_handler: function(error_code, error_message, bank_error_code, bank_error_message, gateway_id) {
-            //redirect to failure page
-            window.location = "failure.php";
-        }
-    })
-</script> 
+    <!--Call Juspay.setup with your own success and error handler.-->
+    <script type="text/javascript">
+        Juspay.Setup({
+            payment_form: "#payment_form",
+            success_handler: function(status) {
+                //redirect to success page
+                window.location = "success.php";
+            },
+            error_handler: function(error_code, error_message, bank_error_code, bank_error_message, gateway_id) {
+                //redirect to failure page
+                window.location = "failure.php";
+            }
+        })
+    </script> 
+
+  </body>
+</html>
