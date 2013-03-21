@@ -17,10 +17,12 @@ $customer_email = 'customer@mail.com';
 $amount = '10.00';
 #Create an "unique" order id.
 $order_id = rand();
+#Return Url
+$return_url = "http://localhost/payment_status.php"
   
 
 curl_setopt($ch, CURLOPT_POSTFIELDS, array('customer_id' => $customer_id , 'customer_email' => $customer_email , 
-                         'amount' => $amount , 'order_id' => $order_id ));
+                         'amount' => $amount , 'order_id' => $order_id , 'return_url' => $return_url ));
 curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);                    
 curl_setopt($s,CURLOPT_TIMEOUT, 15); 
 
