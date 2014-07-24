@@ -1,16 +1,13 @@
-This repo consists of example code for client side integrating with Juspay solutions.
+This repository consists of example code for client side integration with Juspay Express Checkout.
 
-The code samples are available for Ruby, php and Java platforms.
+Code samples are available for PHP, Java and Ruby.
 
-Each code sample has sample integration with Juspay solutions. This consists of how-to series of :
-	
-	Integrating with Juspay inline Checkout
-	Integrating with Juspay Express Checkout
-	Integrating with Juspay iFrame based solution
+Each code sample has sample integration with Juspay. This consists of how-to series of :
+    
+    Integrating with Juspay iFrame based solution
+    Integrating with Juspay Inline Checkout (Javascript)
+    Integrating with Juspay Express Checkout (Javascript)
 
+It is easier to get started with iFrame based integration. However, if the complexity of the checkout is high, then javascript based integration is highly recommended.
 
-Merchants are requested to look at the specific example as per their need and requirements.
-
-
-In case of any queries please contact `admin@juspay.in`.
-
+In case of any queries please contact `support@juspay.in`.

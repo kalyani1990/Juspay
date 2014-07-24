@@ -1,21 +1,21 @@
 <?php
 
-#First initiate the order using init_order api call
-$ch = curl_init('https://api.juspay.in/init_order');
+# Create the order with /order/create API call
+$ch = curl_init('https://api.juspay.in/order/create');
 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);    
 
-#You should use your API key here. This API is a test Key wont work in production.                 
+# You should use your API key here. This API is a test Key wont work in production.                 
 curl_setopt($ch, CURLOPT_USERPWD, '782CB4B3F5B84BDDB3C9EAFA6A134DC3:');
 curl_setopt($ch, CURLOPT_POST, 1); 
 
 
-#Set the customer_id, customer_email , amount and order_id as per details.
-#NOTE: The amount and order_id are the fields associated with the "current" order.
+# Set the customer_id, customer_email , amount and order_id as per details.
+# NOTE: The amount and order_id are the fields associated with the "current" order.
 $customer_id = 'guest_user_101';
 $customer_email = 'customer@mail.com';
 $amount = '10.00';
-#Create an "unique" order id.
+# Create a "unique" order id.
 $order_id = rand();
 
 
@@ -62,7 +62,7 @@ curl_setopt($s,CURLOPT_TIMEOUT, 15);
                   <div class="control-group">
                     <label class="control-label">Card no</label>
                     <div class="controls">
-                      <label>5264-XXXXXXXX-3394</label>
+                      <label>5264-xxxx-xxxx-3394</label>
                     </div>
                   </div>
                   <div class="control-group">
