@@ -28,7 +28,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, array('customer_id' => $customer_id , 'cust
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);                    
 curl_setopt($ch,CURLOPT_TIMEOUT, 15); 
 
-$response = curl_exec($ch);                                          
+$response = curl_exec($ch);
 echo "<center><b>Juspay Integration Example</b></center>";
 
 echo "<br /><br />";

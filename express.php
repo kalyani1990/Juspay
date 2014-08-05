@@ -23,6 +23,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, array('customer_id' => $customer_id , 'cust
                          'amount' => $amount , 'order_id' => $order_id ));
 curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);                    
 curl_setopt($s,CURLOPT_TIMEOUT, 15); 
+$response = curl_exec($ch);
 
 ?>
 
