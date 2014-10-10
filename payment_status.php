@@ -9,6 +9,7 @@
 
 	curl_setopt($ch, CURLOPT_POSTFIELDS ,array('orderId' => $orderId , 'merchantId' => $merchantId ));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+    curl_setopt($ch, CURLOPT_USERPWD, '7AF0A0ECEE5940FAA6345F0BAC67315D:');
 
 	//get the json response
 	$jsonResponse =  json_decode( curl_exec($ch) ); 
