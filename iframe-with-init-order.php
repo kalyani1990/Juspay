@@ -20,6 +20,7 @@ $customer_id = 'guest_user_101';
 $customer_email = 'customer@mail.com';
 $amount = '10.00';
 $order_id = rand();
+$merchant_id = 'guest';
 # This is the URL where the customer will be redirected to. Change localhost to your domain.
 $return_url = "http://localhost/payment_status.php";
 
@@ -38,7 +39,7 @@ echo "<br /><br />";
 # After initiating the order use Juspay's iFrame solution.
 # Note that the order_id should be passed to iFrame which is been used in the previous step
 
-echo "<center><iframe src=\"https://api.juspay.in/merchant/ipay?order_id=$order_id&amount=$amount&customer_id=$customer_id&customer_email=$customer_email\" width=\"420\" height=\"320\" 
+echo "<center><iframe src=\"https://api.juspay.in/merchant/ipay?merchant_id=$merchant_id&order_id=$order_id&amount=$amount&customer_id=$customer_id&customer_email=$customer_email\" width=\"420\" height=\"320\" 
         style=\"border: 2px solid #CCC;padding: 45px;height: auto;min-height: 250px;\">
         </iframe>
     </center>"   
