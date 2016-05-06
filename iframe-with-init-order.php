@@ -27,7 +27,7 @@ $return_url = "http://localhost/payment_status.php";
 curl_setopt($ch, CURLOPT_POSTFIELDS, array('customer_id' => $customer_id , 'customer_email' => $customer_email , 
                          'amount' => $amount , 'order_id' => $order_id , 'return_url' => $return_url ));
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);                    
-curl_setopt($ch,CURLOPT_TIMEOUT, 15); 
+curl_setopt($ch, CURLOPT_TIMEOUT, 15); 
 
 $response = curl_exec($ch);
 echo "<center><b>Juspay Integration Example</b></center>";
