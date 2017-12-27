@@ -29,16 +29,16 @@ curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 curl_setopt($ch,CURLOPT_TIMEOUT, 15); 
 
 $response = curl_exec($ch);
+$responseBody = json_decode ($response, true );
 echo "<center><b>Juspay Integration Example</b></center>";
-
+$iframe_pay=$responseBody['payment_links']['iframe'];
 echo "<br /><br />";
 
 
 # Step 2
 # After initiating the order use Juspay's iFrame solution.
-# Note that the order_id should be passed to iFrame which is been used in the previous step
 
-echo "<center><iframe src=\"https://api.juspay.in/merchant/ipay?order_id=$order_id&amount=$amount&customer_id=$customer_id&customer_email=$customer_email\" width=\"420\" height=\"320\" 
+echo "<center><iframe src=\"$iframe_pay\" width=\"420\" height=\"320\" 
         style=\"border: 2px solid #CCC;padding: 45px;height: auto;min-height: 250px;\">
         </iframe>
     </center>"   
